@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chordify Mood</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        #video-container {
+            margin-top: 20px;
+        }
+        .song-suggestion {
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            margin-bottom: 10px;
+            display: none; /* Hide by default */
+        }
+    </style>
+</head>
+<body>
+    <h1>Chordify Mood</h1>
+    <div class="music-note">&#9835;</div>
+    <div class="music-note">&#9835;</div>
+    <div class="music-note">&#9835;</div>
+    <div class="music-note">&#9835;</div>
+    <div class="music-note">&#9835;</div>
+    <div class="music-note">&#9835;</div>
+    <div class="music-note">&#9835;</div>
+    <form id="mood-form">
+        <label for="mood">Select Mood:</label>
+        <select id="mood">
+            <option value="happy">Happy</option>
+            <option value="sad">Sad</option>
+            <option value="chill">Chill</option>
+            <option value="jazz">Jazz</option>
+        </select>
+        <button type="submit">Generate Chord Progression</button>
+    </form>
+    <div id="result"></div>
+    <div class="song-suggestion" id="song-suggestion">Song Suggestion</div>
+    <div id="video-container"></div>
+
+    <script src="chordifymood.js"></script>
+    <script>
+        // Show the song suggestion after generating chord progression
+        document.getElementById('mood-form').addEventListener('submit', function(event) {
+            // Get the selected mood
+            const selectedMood = document.getElementById('mood').value;
+            // Update the song suggestion text based on the selected mood
+            document.getElementById('song-suggestion').textContent = `${selectedMood.charAt(0).toUpperCase() + selectedMood.slice(1)} Song Suggestion`;
+            document.getElementById('song-suggestion').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
